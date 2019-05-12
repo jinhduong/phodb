@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "noImplicitThis": false,
+    "noImplicitAny": false,
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "strict": false,
+    "module": "es2015",
+    "moduleResolution": "node",
+    "target": "es5",
+    "experimentalDecorators": true,
+    "lib": ["dom", "es2017"]
+  },
+  "include": ["./src/**/*"],
+  "paths": {
+    "lodash/*": ["node_modules/@types/lodash-es/*"]
+  }
+}
