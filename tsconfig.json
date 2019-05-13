@@ -1,8 +1,10 @@
 {
   "compilerOptions": {
+    "declaration": true,
+    "declarationMap": true,
     "noImplicitThis": false,
     "noImplicitAny": false,
-    "outDir": "./dist/",
+    "outDir": "./build/phodb",
     "sourceMap": true,
     "strict": false,
     "module": "es2015",
