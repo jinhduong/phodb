@@ -1,0 +1,38 @@
+{
+  "name": "phodb",
+  "version": "1.0.0",
+  "description": "simplest db for chrome extension",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx jest",
+    "build": "rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jinhduong/phodb.git"
+  },
+  "keywords": [
+    "phodb"
+  ],
+  "author": "jinhduong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jinhduong/phodb/issues"
+  },
+  "homepage": "https://github.com/jinhduong/phodb#readme",
+  "devDependencies": {
+    "@babel/preset-typescript": "^7.3.3",
+    "@types/chrome": "0.0.83",
+    "@types/jest": "^24.0.12",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.6.0",
+    "babel-preset-env": "^1.7.0",
+    "jest": "^24.8.0",
+    "rollup": "^1.11.3",
+    "rollup-plugin-typescript": "^1.0.1",
+    "ts-jest": "^24.0.2",
+    "tslib": "^1.9.3",
+    "typescript": "^3.4.5",
+    "webpack": "^4.31.0"
+  }
+}
