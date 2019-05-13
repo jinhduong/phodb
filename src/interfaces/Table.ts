@@ -1,13 +1,13 @@
 import { BaseModel } from "./BaseModel";
 
-export interface ITable<T extends BaseModel> {
-  add(model: T): Promise<T>;
+export interface ITable<T> {
+  add(model: T): Promise<T & BaseModel>;
   remove(id: string): Promise<boolean>;
-  update(id: string, model: T): Promise<T>;
+  update(id: string, model: T & BaseModel): Promise<T & BaseModel>;
 
-  findOne(pre: (model: T) => boolean): Promise<T>;
-  where(pre: (model: T) => boolean): Promise<T[]>;
-  list(): T[];
+  findOne(pre: (model: T & BaseModel) => boolean): Promise<T & BaseModel>;
+  where(pre: (model: T & BaseModel) => boolean): Promise<(T & BaseModel)[]>;
+  list(): Promise<(T & BaseModel)[]>;
 
   getName(): string;
 }

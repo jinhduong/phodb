@@ -4,9 +4,9 @@ import { ITable } from "../../interfaces/Table";
 import { ChromeExtTable } from "./ChromeExtTable";
 
 export class ChromeExtDb implements IPhoDb {
-  _tables: ITable<any>[] = [];
-  _setFunc: (localData: any) => void;
-  _getFunc: (callback: (data: any) => void) => void;
+  private _tables: ITable<any>[] = [];
+  private _setFunc: (localData: any) => void;
+  private _getFunc: (callback: (data: any) => void) => void;
 
   constructor(options?: {
     setFunc: (localData: any) => void;
@@ -29,7 +29,7 @@ export class ChromeExtDb implements IPhoDb {
     };
   }
 
-  table<T extends BaseModel>(name: string): ITable<T> {
+  table<T>(name: string): ITable<T> {
     if (this.exist(name)) {
       throw Error("This table name already created.");
     }
