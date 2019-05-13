@@ -49,10 +49,16 @@ class ChromeExtTable<T> implements ITable<T> {
   list(): Promise<(T & BaseModel)[]>;
   getName(): string;
 }
+
+interface BaseModel {
+    id: string;
+    createdAt: number;
+    updateAt: number;
+}
 ```
 
 ## Browser & js built file
-
+https://github.com/jinhduong/phodb/blob/master/build/release/phodb.chrome.js
 ```js
 var peopleTable = ChromeExt.table("people");
 ```
