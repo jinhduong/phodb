@@ -13,9 +13,13 @@ const db = new ChromeExtDb({
 });
 const tb1 = db.table("test");
 
-test("Table list", () => {
-  expect(tb1.list()).not.toBeUndefined;
-  expect(Array.isArray(tb1.list())).toBe(true);
+it("Table list", () => {
+  expect.assertions(1);
+  const promise = tb1.list();
+  return promise.then(res => {
+    expect(res).not.toBeUndefined;
+    expect(Array.isArray(res)).toBe(true);
+  });
 });
 
 it("Table add", () => {
@@ -29,7 +33,11 @@ it("Table add", () => {
 });
 
 test("Check list after added", () => {
-  expect(tb1.list().length).toBeGreaterThan(0);
+  expect.assertions(1);
+  const promise = tb1.list();
+  return promise.then(res => {
+    expect(res.length).toBeGreaterThan(0);
+  });
 });
 
 it("Table findOne", () => {
