@@ -1,11 +1,12 @@
 {
   "name": "phodb",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "simplest db for chrome extension",
   "main": "index.js",
   "scripts": {
     "test": "npx jest",
     "build:iife": "rollup -c",
+    "tsc":"tsc -b -w",
     "build:tsc": "tsc -b && npm --no-git-tag-version version patch && copyfiles -f package.json README.md build/phodb"
   },
   "repository": {

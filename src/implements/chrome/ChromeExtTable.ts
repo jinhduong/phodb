@@ -5,7 +5,7 @@ import { uuid } from "../../utils/helpers";
 export class ChromeExtTable<T> implements ITable<T> {
   // Locals
   private _name: string;
-  private _localData: (T & BaseModel)[];
+  private _localData: (T & BaseModel)[] = [];
 
   // Get from db instance
   _setFunc: (localData: any) => void;
@@ -84,10 +84,10 @@ export class ChromeExtTable<T> implements ITable<T> {
     });
   }
 
-  findOne(pre: (model: T & BaseModel) => boolean): Promise<T & BaseModel> {
+  findOne(pre: (model: T & BaseModel) => boolean): Promise<T & BaseModel | null> {
     return this._fetch().then(res => {
       const model = res.find(pre);
-      return model;
+      return model || null;
     });
   }
 
