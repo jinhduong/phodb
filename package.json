@@ -6,6 +6,7 @@
   "scripts": {
     "test": "npx jest",
     "build:iife": "rollup -c",
+    "tsc":"tsc -b -w",
     "build:tsc": "tsc -b && npm --no-git-tag-version version patch && copyfiles -f package.json README.md build/phodb"
   },
   "repository": {
