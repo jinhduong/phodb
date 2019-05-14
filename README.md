@@ -2,6 +2,8 @@
 
 ![](https://api.travis-ci.org/jinhduong/phodb.svg?branch=dev)
 
+[![](https://badge.fury.io/js/phodb.svg)](https://www.npmjs.com/package/phodb)
+
 ## Simplest database interface for chrome extension storage
 
 - Simple built-in methods
