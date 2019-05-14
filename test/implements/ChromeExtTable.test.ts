@@ -1,5 +1,10 @@
 import { ChromeExtDb } from "../../src/implements/chrome/ChromeExtDb";
 
+interface Person {
+  age: number;
+  name: string;
+}
+
 let mock = {};
 let id;
 
@@ -11,7 +16,7 @@ const db = new ChromeExtDb({
     cb(mock);
   }
 });
-const tb1 = db.table("test");
+const tb1 = db.table<Person>("test");
 
 it("Table list", () => {
   expect.assertions(1);
@@ -42,11 +47,17 @@ test("Check list after added", () => {
 
 it("Table findOne", () => {
   expect.assertions(2);
-  const promise = tb1.findOne((x: any) => x.age == 22);
+  const promise = tb1.findOne(x => !!x && x.age == 22);
   return promise.then(res => {
-    id = res.id;
-    expect(res).toBeDefined();
-    expect(res.createdAt).toBeDefined();
+    console.log(res);
+    if (res) {
+      id = res.id;
+      expect(res).toBeDefined();
+      expect(res.createdAt).toBeDefined();
+    } else {
+      expect(res).toBeNull();
+      expect(res).not.toBeUndefined();
+    }
   });
 });
 

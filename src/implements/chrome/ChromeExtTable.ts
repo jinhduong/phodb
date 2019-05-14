@@ -67,7 +67,7 @@ export class ChromeExtTable<T> implements ITable<T> {
   update(id: string, model: T & BaseModel): Promise<T & BaseModel | null> {
     return this._fetch().then(res => {
       const now = new Date();
-      const index = res.findIndex(x => x.id == id);
+      const index = res.findIndex(x => !!x && x.id == id);
 
       if (index < 0) {
         return null;
@@ -84,7 +84,9 @@ export class ChromeExtTable<T> implements ITable<T> {
     });
   }
 
-  findOne(pre: (model: T & BaseModel) => boolean): Promise<T & BaseModel | null> {
+  findOne(
+    pre: (model: T & BaseModel) => boolean
+  ): Promise<T & BaseModel | null> {
     return this._fetch().then(res => {
       const model = res.find(pre);
       return model || null;
@@ -112,7 +114,7 @@ export class ChromeExtTable<T> implements ITable<T> {
     } else {
       return new Promise((resolve, reject) => {
         this._getFunc((res: any) => {
-          resolve(res[this._name]);
+          resolve(res[this._name] || []);
         });
       });
     }
