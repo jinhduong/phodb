@@ -1,6 +1,6 @@
 {
   "name": "phodb",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "simplest db for chrome extension",
   "main": "index.js",
   "scripts": {

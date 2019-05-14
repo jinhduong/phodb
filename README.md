@@ -12,6 +12,10 @@
 
 ## Usage
 
+```
+npm i phodb -S
+```
+
 ```ts
 import { ChromeExtDb } from "phodb";
 
